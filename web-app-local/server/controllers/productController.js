@@ -2,7 +2,7 @@ const Product = require('../models/Product');
 
 exports.getAllProducts = async (req, res) => {
     try {
-      const products = await Product.find({ userId: req.userId });
+      const products = await Product.find();
       res.json(products);
     } catch (error) {
       res.status(500).json({ message: "Error al obtener productos", error });
@@ -23,7 +23,7 @@ exports.getProduct = async (req, res) => {
 
 exports.createProduct = async (req, res) => {
     try {
-        const newProduct = new Product({ ...req.body, userId: req.userId });
+        const newProduct = new Product({ ...req.body, userId: req.body.userId });
         await newProduct.save();
         res.status(201).json(newProduct);
     } catch (error) {

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
+//const authenticateUser = require('../middlewares/authenticateUser');  // Importa el middleware
+
 
 router.get("/", userController.getUsers);
 router.get("/:id", userController.getUser);

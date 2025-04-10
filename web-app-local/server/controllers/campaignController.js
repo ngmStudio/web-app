@@ -30,7 +30,7 @@ exports.createCampaign = async (req, res) => {
     }
 };
 
-exports.updateCampaign = async (Request, res) => {
+exports.updateCampaign = async (req, res) => {
     try {
       const updatedCampaign = await Campaign.findByIdAndUpdate(
         req.params.id,

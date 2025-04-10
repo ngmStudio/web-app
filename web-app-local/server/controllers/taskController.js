@@ -34,6 +34,18 @@ exports.getTasks = async (req, res) => {
   }
 };
 
+// Obtener una tarea 
+exports.getTask = async (req, res) => {
+  try {
+    const task = await Task.findOne({ _id: req.params.id, userId: req.userId });
+    if (!task)
+      return res.status(404).json({message: "No se ha encontrado la tarea"});
+    res.status(200).json(task);
+  } catch(error) {
+
+  }
+}
+
 // Actualizar una tarea
 exports.updateTask = async (req, res) => {
   try {

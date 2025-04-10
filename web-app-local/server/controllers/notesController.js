@@ -19,6 +19,7 @@ exports.createNote = async (req, res) => {
   }
 };
 
+
 // Obtener todas las notas de un usuario
 exports.getNotes = async (req, res) => {
   try {

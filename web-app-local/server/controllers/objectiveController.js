@@ -32,6 +32,20 @@ exports.getObjectives = async (req, res) => {
   }
 };
 
+// Obtener un objetivo por id
+exports.getObjective = async (req, res) => {
+  try {
+    const objective = await Objective.findOne({
+      _id: req.params.id,
+      userId: req.userId,
+    });
+    if (!objective)
+      return res.status(500).json({message: "Objetivo no encontrado", error});
+  } catch (error) {
+    res.status(500).json({ message: "Error al obtener el objetivo", error });
+  }
+}
+
 // Actualizar un objetivo
 exports.updateObjective = async (req, res) => {
   try {

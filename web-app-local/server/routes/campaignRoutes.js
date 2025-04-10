@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const campaignController = requiere('../controllers/campaignController');
+const campaignController = require('../controllers/campaignController');
 
 router.get("/", campaignController.getAllCampaigns);
 router.get("/:id", campaignController.getCampaign);
